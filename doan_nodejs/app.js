@@ -12,6 +12,9 @@ var dk_dnRouter = require('./routes/dangky_dangnhap');
 var aboutRouter = require('./routes/about');
 var errorRouter = require('./routes/error');
 var giohangRouter = require('./routes/giohang');
+var tulanhRouter=require('./routes/tulanh');
+var maylanhRouter=require('./routes/maylanh');
+
 
 var app = express();
 
@@ -35,6 +38,8 @@ app.use('/', dk_dnRouter);
 app.use('/', aboutRouter);
 app.use('/', errorRouter);
 app.use('/', giohangRouter);
+app.use('/tulanh/',tulanhRouter);
+app.use('/maylanh',maylanhRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

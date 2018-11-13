@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
   sanphams.find({ma_loai:ObjectId("5bd11b8b088ca72064cc2c30")},(err,db)=>{
     sp=db;
     //console.log(db);
-    res.render('sanpham',{tieude:'TiVi',trangthai:'Tivi',sanpham:sp});
+    res.render('sanpham',{tieude:'TiVi',trangthai:'Tivi',sanpham:sp,thumuc:'tivi'});
   });
 
 });
@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 router.get('/samsung/', function(req, res, next) {
   sanphams.find({ma_loai:ObjectId("5bd11b8b088ca72064cc2c30"),ma_thuong_hieu:ObjectId("5bd11b2a088ca72064cc2c2d")},(err,db)=>{
     sp=db;
-    res.render('sanpham',{tieude:'TiVi SamSung',trangthai:'Tivi / SAMSUNG',sanpham:sp});
+    res.render('sanpham',{tieude:'TiVi SamSung',trangthai:'Tivi / SAMSUNG',sanpham:sp,thumuc:'tivi'});
   });
 
 });
@@ -29,7 +29,7 @@ router.get('/samsung/', function(req, res, next) {
 router.get('/sony/', function(req, res, next) {
   sanphams.find({ma_loai:ObjectId("5bd11b8b088ca72064cc2c30"),ma_thuong_hieu:ObjectId("5bd11b5a088ca72064cc2c2f")},(err,db)=>{
     sp=db;
-    res.render('sanpham',{tieude:'TiVi Sony',trangthai:'Tivi / SONY',sanpham:sp});
+    res.render('sanpham',{tieude:'TiVi Sony',trangthai:'Tivi / SONY',sanpham:sp,thumuc:'tivi'});
   });
 
 });
@@ -37,7 +37,7 @@ router.get('/sony/', function(req, res, next) {
 router.get('/lg/', function(req, res, next) {
   sanphams.find({ma_loai:ObjectId("5bd11b8b088ca72064cc2c30"),ma_thuong_hieu:ObjectId("5bd11b46088ca72064cc2c2e")},(err,db)=>{
     sp=db;
-    res.render('sanpham',{tieude:'TiVi LG',trangthai:'Tivi / LG',sanpham:sp});
+    res.render('sanpham',{tieude:'TiVi LG',trangthai:'Tivi / LG',sanpham:sp,thumuc:'tivi'});
   });
 
 });
