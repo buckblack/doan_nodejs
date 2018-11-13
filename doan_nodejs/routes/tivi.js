@@ -3,7 +3,7 @@ var router = express.Router();
 var ObjectId = require('mongodb').ObjectID;
 var mongoose=require('mongoose');
 var mongoDB = 'mongodb://localhost:27017/ql_ban_hang';
-mongoose.connect(mongoDB);
+mongoose.connect(mongoDB,{ useNewUrlParser: true });
 
 var sanphams=require('../schema/sanphamSchema');
 //var spp=mongoose.model('san_pham',sanphams,'san_pham');//(model name, schema name, collection name)

@@ -5,7 +5,7 @@ var ObjectId = mongodb.ObjectID;
 var MongoClient = mongodb.MongoClient;
 var mongoose=require('mongoose');
 var mongoDB = 'mongodb://localhost:27017/ql_ban_hang';
-mongoose.connect(mongoDB);
+mongoose.connect(mongoDB,{ useNewUrlParser: true });
 var sanphams = new mongoose.Schema({
   //_id: ObjectId,
   ten_sp: String,
@@ -39,7 +39,7 @@ var thuonghieus=require('../schema/thuonghieuSchema');
 var url = "mongodb://localhost:27017/";
 var sp;
 var dbo;
-MongoClient.connect(url, function(err, db) {
+MongoClient.connect(url,{ useNewUrlParser: true }, function(err, db) {
   if (err) throw err;
   dbo = db.db("ql_ban_hang");
   //var myobj = { ten_sp: "ten_sp", gia_ban: "123456789",ma_thuong_hieu:ObjectId("5bd11b2a088ca72064cc2c2d"),ma_loai:ObjectId("5bd11b8b088ca72064cc2c30"),hinh_anh:"xsdffv" };

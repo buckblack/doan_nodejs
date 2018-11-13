@@ -5,6 +5,7 @@
 <% include layout/nav %>
 	<!-- main-slider -->
 	<% include layout/slider %>
+	<% include thuvien/bodau %>
 	<!-- //main-slider -->
 	<!-- //top-header and slider -->
 	<!-- top-brands -->
@@ -23,7 +24,7 @@
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="/chitiet/san-pham-<%= sanpham[i]._id%>"><img width="205px" height="136px" title=" " alt=" " src="/static/images/<%= sanpham[i].loaisp[0].thu_muc_hinh%>/<%= sanpham[i].hinh_anh%>"></a>
+												<a href="/chitiet/<%= bo_dau(sanpham[i].ten_sp)%>/<%= sanpham[i]._id%>/<%= sanpham[i].ma_loai%>"><img width="205px" height="136px" title=" " alt=" " src="/static/images/<%= sanpham[i].loaisp[0].thu_muc_hinh%>/<%= sanpham[i].hinh_anh%>"></a>
 												<div style="height:80px"><p><%= sanpham[i].ten_sp%></p></div>
 
 													<h4><%= (sanpham[i].gia_ban).toLocaleString()%> VNĐ</h4>
