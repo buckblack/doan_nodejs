@@ -26,12 +26,12 @@
         </thead>
 
         <tr class="rem{$dem}">
-          <td class="invert">{$dem}</td>
+          <td class="invert">1</td>
           <td class="invert-image"><a href="san-pham={$san_pham->ma_san_pham}-{thu_vien::bo_dau($san_pham->ten_san_pham)}"><img style="width:70px" src="public/images/{$san_pham->thu_muc}/{$san_pham->hinh}" alt=" " class="img-responsive" /></a></td>
           <td class="invert"><div class="quantity">
               <div class="quantity-select">
                 <div class="entry value-minus" id="so_luong_{$san_pham->ma_san_pham}_1" ma_san_pham="{$san_pham->ma_san_pham}" don_gia="{$san_pham->don_gia}">&nbsp;</div>
-                <div class="entry value" id="so_sp{$san_pham->ma_san_pham}">masp</div>
+                <div class="entry value" id="so_sp{$san_pham->ma_san_pham}">1</div>
                 <div class="entry value-plus active" id="so_luong_{$san_pham->ma_san_pham}_2" ma_san_pham="{$san_pham->ma_san_pham}" don_gia="{$san_pham->don_gia}">&nbsp;</div>
               </div>
               <script>
@@ -81,8 +81,8 @@
                                 	})
                                 </script>
             </div></td>
-          <td class="invert">{$san_pham->ten_san_pham}</td>
-          <td class="invert">10000000 VNĐ</td>
+          <td class="invert">Ti vi</td>
+          <td class="invert">10,000,000 VNĐ</td>
           <td class="invert"><div class="rem">
               <div class="close1" id="close{$dem}" ma_san_pham="{$san_pham->ma_san_pham}" don_gia="{$san_pham->don_gia}"></div>
             </div>
@@ -156,7 +156,7 @@
     </div>
   </div>
 
-  <p align="center" style="color:#F00; font-size:24px; font-weight:bold">Chưa có sản phẩm nào trong giỏ</p>
+  <p align="center" style="color:#F00; font-size:24px; font-weight:bold"><br>Chưa có sản phẩm nào trong giỏ</p>
   </div>
 
 <!-- //checkout -->
