@@ -358,6 +358,7 @@ ul.multi-column-dropdown h6 {
 	background: #FFFFFF;
     padding: .5em;
 	position:relative;
+  box-sizing: border-box;
 }
 .agile_top_brand_left_grid_pos{
 	position:absolute;
@@ -993,7 +994,7 @@ a.w3_agile_vimeo:hover{
 /*-- //login --*/
 /*-- register --*/
 .register {
-    padding: 5em 0;
+    padding: 3em 0;
 }
 .login-form-grids h5,.login-form-grids h6{
 	font-size:1em;

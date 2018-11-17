@@ -29,6 +29,7 @@ router.get('/:tensp/:id/:maloai', function(req, res, next) {
      }
    ]).exec(function(err, result) {
     var sp=result;
+    console.log(sp);
     sanphams.aggregate([
       {
         $match:

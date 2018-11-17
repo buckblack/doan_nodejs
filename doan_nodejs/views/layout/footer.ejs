@@ -138,10 +138,11 @@
 			{
 				alert("Vui lòng nhập từ khoá tìm kiếm")
 				ten_khach_hang.focus()
-				return false
 			}
-
-			return true
+			else
+			{
+				window.location='/tim-kiem/'+tim_kiem.value.trim()
+			}
 		}
 
 		function kiem_tra_binh_luan()
