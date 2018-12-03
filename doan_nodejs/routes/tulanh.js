@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 router.get('/samsung/', function(req, res, next) {
   sanphams.find({ma_loai:ObjectId("5be914a2c4741b03ecfa622b"),ma_thuong_hieu:ObjectId("5bd11b2a088ca72064cc2c2d")},(err,db)=>{
     sp=db;
-    res.render('sanpham',{tieude:'Tủ Lạnh SamSung',trangthai:'TuLanh/ SAMSUNG',sanpham:sp,thumuc:'tulanh'});
+    res.render('sanpham',{tieude:'Tủ Lạnh SamSung',trangthai:'Tủ Lạnh/ SAMSUNG',sanpham:sp,thumuc:'tulanh'});
   });
 
 });
@@ -30,7 +30,7 @@ router.get('/samsung/', function(req, res, next) {
 router.get('/toshiba/', function(req, res, next) {
   sanphams.find({ma_loai:ObjectId("5be914a2c4741b03ecfa622b"),ma_thuong_hieu:ObjectId("5be90ab7c4741b03ecfa6229")},(err,db)=>{
     sp=db;
-    res.render('sanpham',{tieude:'Tủ Lạnh Toshiba',trangthai:'TuLanh / SONY',sanpham:sp,thumuc:'tulanh'});
+    res.render('sanpham',{tieude:'Tủ Lạnh Toshiba',trangthai:'Tủ Lạnh / Toshiba',sanpham:sp,thumuc:'tulanh'});
   });
 
 });
@@ -38,7 +38,7 @@ router.get('/toshiba/', function(req, res, next) {
 router.get('/panasonic/', function(req, res, next) {
   sanphams.find({ma_loai:ObjectId("5be914a2c4741b03ecfa622b"),ma_thuong_hieu:ObjectId("5be90aabc4741b03ecfa6228")},(err,db)=>{
     sp=db;
-    res.render('sanpham',{tieude:'Tủ Lạnh Panasonic',trangthai:'TuLanh / LG',sanpham:sp,thumuc:'tulanh'});
+    res.render('sanpham',{tieude:'Tủ Lạnh Panasonic',trangthai:'Tủ Lạnh / Panasonic',sanpham:sp,thumuc:'tulanh'});
   });
 
 });
