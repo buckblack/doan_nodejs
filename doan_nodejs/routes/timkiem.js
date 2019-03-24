@@ -1,4 +1,5 @@
 var express = require('express');
+//var localStorage = require('localStorage')
 var router = express.Router();
 var mongodb = require('mongodb');
 var ObjectId = mongodb.ObjectID;
@@ -7,7 +8,6 @@ var mongoDB = 'mongodb://localhost:27017/ql_ban_hang';
 mongoose.connect(mongoDB,{ useNewUrlParser: true });
 var sanphams=require('../schema/sanphamSchema');
 var url = "mongodb://localhost:27017/";
-var sp;
 router.get('/:id', function(req, res, next) {
   //var tukhoa=req.params.id;
   sanphams.aggregate([
@@ -26,9 +26,11 @@ router.get('/:id', function(req, res, next) {
        }
      }
    ]).exec(function(err, result) {
-    console.log(JSON.stringify(result));
-    sp=result;
-    res.render('timkiem', { tieude: 'Tìm kiếm',sanpham:sp,trangthai:'Tìm kiếm'});
+    //console.log(JSON.stringify(result));
+    //localStorage.setItem('kq',123)
+    //console.log(localStorage.getItem('kq'));
+    console.log(req.Nguoi_dung);
+    res.render('timkiem', { tieude: 'Tìm kiếm',sanpham:result,trangthai:'Tìm kiếm'});
   });
 });
 

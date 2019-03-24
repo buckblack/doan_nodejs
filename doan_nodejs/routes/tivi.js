@@ -1,4 +1,5 @@
 var express = require('express');
+//var localStorage = require('localStorage')
 var router = express.Router();
 var ObjectId = require('mongodb').ObjectID;
 var mongoose=require('mongoose');
@@ -8,36 +9,35 @@ mongoose.connect(mongoDB,{ useNewUrlParser: true });
 var sanphams=require('../schema/sanphamSchema');
 //var spp=mongoose.model('san_pham',sanphams,'san_pham');//(model name, schema name, collection name)
 /* GET home page. */
-var sp;
 router.get('/', function(req, res, next) {
   sanphams.find({ma_loai:ObjectId("5bd11b8b088ca72064cc2c30")},(err,db)=>{
-    sp=db;
+    req.Nguoi_dung.Nguoi_dung='asdf132'
+    //console.log(localStorage.getItem('kq'));
     //console.log(db);
-    res.render('sanpham',{tieude:'TiVi',trangthai:'Tivi',sanpham:sp,thumuc:'tivi'});
+    res.render('sanpham',{tieude:'TiVi',trangthai:'Tivi',sanpham:db,thumuc:'tivi'});
   });
 
 });
 
 router.get('/samsung/', function(req, res, next) {
   sanphams.find({ma_loai:ObjectId("5bd11b8b088ca72064cc2c30"),ma_thuong_hieu:ObjectId("5bd11b2a088ca72064cc2c2d")},(err,db)=>{
-    sp=db;
-    res.render('sanpham',{tieude:'TiVi SamSung',trangthai:'Tivi / SAMSUNG',sanpham:sp,thumuc:'tivi'});
+    console.log(req.Nguoi_dung);
+    
+    res.render('sanpham',{tieude:'TiVi SamSung',trangthai:'Tivi / SAMSUNG',sanpham:db,thumuc:'tivi'});
   });
 
 });
 
 router.get('/sony/', function(req, res, next) {
   sanphams.find({ma_loai:ObjectId("5bd11b8b088ca72064cc2c30"),ma_thuong_hieu:ObjectId("5bd11b5a088ca72064cc2c2f")},(err,db)=>{
-    sp=db;
-    res.render('sanpham',{tieude:'TiVi Sony',trangthai:'Tivi / SONY',sanpham:sp,thumuc:'tivi'});
+    res.render('sanpham',{tieude:'TiVi Sony',trangthai:'Tivi / SONY',sanpham:db,thumuc:'tivi'});
   });
 
 });
 
 router.get('/lg/', function(req, res, next) {
   sanphams.find({ma_loai:ObjectId("5bd11b8b088ca72064cc2c30"),ma_thuong_hieu:ObjectId("5bd11b46088ca72064cc2c2e")},(err,db)=>{
-    sp=db;
-    res.render('sanpham',{tieude:'TiVi LG',trangthai:'Tivi / LG',sanpham:sp,thumuc:'tivi'});
+    res.render('sanpham',{tieude:'TiVi LG',trangthai:'Tivi / LG',sanpham:db,thumuc:'tivi'});
   });
 
 });

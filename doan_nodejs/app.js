@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var localStorage = require('localStorage')
+session = require('client-sessions')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -19,6 +21,20 @@ var timkiemRouter=require('./routes/timkiem');
 
 
 var app = express();
+app.use(session({
+  cookieName: 'Nguoi_dung',
+  secret: '2eca38b4-28d1-11e7-93ae-92361f002671',
+  duration: 60 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
+  httpOnly: true,
+  secure: true,
+  ephemeral: true
+}));
+
+app.use(function(req, res, next) {
+  res.locals.Nguoi_dung = req.Nguoi_dung;
+  next();
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
