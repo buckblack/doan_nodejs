@@ -63,21 +63,26 @@ router.get('/', function(req, res, next) {
       }
     },
     { $lookup:
-       {
-         from: 'loai_san_pham',
-         localField: 'ma_loai',
-         foreignField: '_id',
-         as: 'loaisp'
-       }
-     }
+      {
+        from: 'loai_san_pham',
+        localField: 'ma_loai',
+        foreignField: '_id',
+        as: 'loaisp'
+      }
+    },
+    { $lookup:
+      {
+        from: 'thuong_hieu',
+        localField: 'ma_thuong_hieu',
+        foreignField: '_id',
+        as: 'thuonghieu'
+      }
+    }
     ]).toArray(function(err, result) {
     //if (err) throw err;
     console.log(JSON.stringify(result));
-    sp=result;
     thuonghieus.find({},(err,db)=>{
-      th=db;
-      console.log(db);
-      res.render('trangchu', { tieude: 'Trang chủ',sanpham:sp ,thuonghieu:th});
+      res.render('trangchu', { tieude: 'Trang chủ',sanpham:result ,thuonghieu:db});
     });
   });
   /*dbo.collection("san_pham").find({ hot:1}).toArray(function(err, result) {
