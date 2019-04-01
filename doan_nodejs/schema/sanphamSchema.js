@@ -13,3 +13,4 @@ var sanphamSchema = new Schema({
   xoa: Number
 });
 module.exports = mongoose.model('san_pham', sanphamSchema,'san_pham');
+

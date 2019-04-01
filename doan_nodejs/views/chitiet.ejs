@@ -34,7 +34,7 @@
 								<fieldset>
 									<input type="hidden" id="">
 									<input type="hidden" name="currency_code" value="VND">
-									<input type="button" id="{$san_pham->ma_san_pham}" don_gia="{$san_pham->don_gia}" value="thêm vào giỏ" class="button" >
+									<input type="button" id="<%= sp._id%>" value="thêm vào giỏ" class="button btnAdd" >
 								</fieldset>
 							</form>
 						</div>
@@ -65,13 +65,6 @@
 											<div class="snipcart-thumb">
 												<a href="/chitiet/<%= bo_dau(sp.ten_sp)%>/<%= sp._id%>/<%= sp.ma_loai%>"><img title=" " height="150px" width="200px" alt=" " src="/static/images/<%= sp.loaisp[0].thu_muc_hinh%>/<%= sp.hinh_anh%>"></a>
 												<div style="height:80px"><p><%= sp.ten_sp%></p></div>
-												<div class="stars">
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star gray-star" aria-hidden="true"></i>
-												</div>
 													<h4><%= sp.gia_ban.toLocaleString()%> VNĐ</h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
@@ -80,7 +73,7 @@
 
 														<input type="hidden" id="don_gia({$san_pham->don_gia})">
 														<input type="hidden" name="currency_code" value="VND">
-														<input type="button" id="{$san_pham->ma_san_pham}" don_gia="{$san_pham->don_gia}" value="thêm vào giỏ" class="button" >
+														<input type="button" id="<%= sp._id%>" value="thêm vào giỏ" class="button btnAdd" >
 													</fieldset>
 												</form>
 											</div>

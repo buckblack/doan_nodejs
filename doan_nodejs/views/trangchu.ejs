@@ -13,7 +13,7 @@
 		<div class="container" >
 			<h3>Sản phẩm mới</h3>
 				<div class="agile_top_brands_grids">
-                	<% for(var i=0; i<sanpham.length; i++) {%>
+          <% for(var i=0; i<sanpham.length; i++) {%>
 					<div class="col-md-3 top_brand_left-1">
 						<div style="margin-top:25px" class="hover14 column">
 							<div class="agile_top_brand_left_grid">
@@ -32,9 +32,9 @@
 											<div class="snipcart-details top_brand_home_details">
 												<form action="#" method="post">
 													<fieldset>
-														<input type="hidden" id="don_gia({$san_pham->don_gia})">
+														<input type="hidden" id="">
 														<input type="hidden" name="currency_code" value="VND">
-														<input style="width:100%" type="button" id="{$san_pham->ma_san_pham}" don_gia="{$san_pham->don_gia}" value="thêm vào giỏ" class="button" >
+														<input style="width:100%" type="button" id="<%= sanpham[i]._id%>" value="thêm vào giỏ" class="button btnAdd" >
 													</fieldset>
 												</form>
 											</div>
@@ -88,7 +88,7 @@
 														<fieldset>
 															<input type="hidden" id="don_gia({$san_pham->don_gia})">
 															<input type="hidden" name="currency_code" value="VND">
-															<input type="button" id="{$san_pham->ma_san_pham}" don_gia="{$san_pham->don_gia}" value="thêm vào giỏ" class="button" >
+															<input type="button" id="" value="thêm vào giỏ" class="button btnAdd" >
 														</fieldset>
 													</form>
 															</div>
@@ -135,7 +135,7 @@
 													<fieldset>
 														<input type="hidden" id="don_gia({$san_pham->don_gia})">
 														<input type="hidden" name="currency_code" value="VND">
-														<input type="button" id="{$san_pham->ma_san_pham}" don_gia="{$san_pham->don_gia}" value="thêm vào giỏ" class="button" >
+														<input type="button" id="" value="thêm vào giỏ" class="button btnAdd" >
 													</fieldset>
 												</form>
 														</div>

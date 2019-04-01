@@ -1,16 +1,12 @@
 var express = require('express');
-//var localStorage = require('localStorage')
 var router = express.Router();
 var mongodb = require('mongodb');
 var ObjectId = mongodb.ObjectID;
-var mongoose=require('mongoose');
-var mongoDB = 'mongodb://localhost:27017/ql_ban_hang';
-mongoose.connect(mongoDB,{ useNewUrlParser: true });
-var sanphams=require('../schema/sanphamSchema');
-var url = "mongodb://localhost:27017/";
-router.get('/:id', function(req, res, next) {
-  //var tukhoa=req.params.id;
-  sanphams.aggregate([
+var xl_mongo = require('../public/js/KET_NOI')
+cl_san_pham='san_pham'
+router.get('/:id', async function(req, res, next) {
+  let db = await xl_mongo.Get();
+  db.collection(cl_san_pham).aggregate([
     {
       $match:
       {
@@ -25,12 +21,35 @@ router.get('/:id', function(req, res, next) {
          as: 'loaisp'
        }
      }
-   ]).exec(function(err, result) {
-    //console.log(JSON.stringify(result));
-    //localStorage.setItem('kq',123)
-    //console.log(localStorage.getItem('kq'));
-    console.log(req.Nguoi_dung);
+   ]).toArray(function(err, result) {
     res.render('timkiem', { tieude: 'Tìm kiếm',sanpham:result,trangthai:'Tìm kiếm'});
+  });
+});
+
+router.get('/gio-hang/:id', async function(req, res, next) {
+  let db = await xl_mongo.Get();
+  db.collection(cl_san_pham).aggregate([
+    {
+      $match:
+      {
+        '_id':ObjectId(req.params.id)
+      }
+    },
+    { $lookup:
+       {
+         from: 'loai_san_pham',
+         localField: 'ma_loai',
+         foreignField: '_id',
+         as: 'loaisp'
+       }
+     }
+   ]).toArray(function(err, result) {
+    res.setHeader("Access-Control-Allow-Origin", '*')
+    res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.json(JSON.stringify(result));
+    //res.json(result);
   });
 });
 

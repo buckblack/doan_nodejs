@@ -47,54 +47,35 @@
 <!-- Bootstrap Core JavaScript -->
 <!-- thêm giỏ hàng -->
 <script>
-      $(".button").click(function(){
-							if($(this).val()=="thêm vào giỏ")
-							{
-								$(this).css({"background-color":"#9C3"})
-								$(this).val("✔ đã thêm")
-								$this=$(this)
-								setTimeout(function(){
-									$this.val("thêm vào giỏ")
-									$this.css({"background-color":"#3399cc"});
-									},1000)
-
-								var $key=$(this).attr("id");
-								var $don_gia=$(this).attr("don_gia");
-								var form_data = {
-									"ma_san_pham":$key,
-									"don_gia":$don_gia
-									}
-								$.ajax(
-								{
-									url: "mua_hang.php",
-									data:form_data,
-									type:"POST",
-
-								})
-
-								$.ajax(
-								{
-									url: "cap_nhat_gio_hang.php",
-									success: function(data)
-											{
-												$("#so_san_pham").html(data)
-											}
-
-								})
-
-
-
-							}
-						});
-
-
-		function xoa_gio_hang()
+	if(sessionStorage.getItem('gio_hang') != null)
+	{
+		so_san_pham.innerHTML=JSON.parse(sessionStorage.getItem('gio_hang')).length
+	}
+	$(".btnAdd").click(function(){
+		if($(this).val()=="thêm vào giỏ")
 		{
-			if(confirm("Xác nhận xoá giỏ hàng"))
+			$(this).css({"background-color":"#9C3"})
+			$(this).val("✔ đã thêm")
+			$this=$(this)
+			setTimeout(function(){
+				$this.val("thêm vào giỏ")
+				$this.css({"background-color":"#3399cc"});
+				},1000)
+			var id=$(this).attr("id");
+			var gio_hang;
+			if (sessionStorage.getItem('gio_hang') == null) {
+				gio_hang = [];
+			} else {
+				gio_hang = JSON.parse(sessionStorage.getItem('gio_hang'));
+			}
+			if(gio_hang.find(x=>x.id==id)==undefined)
 			{
-				location='xoa_hang.php';
+				gio_hang.push({'id':id,'so_luong':1})
+				sessionStorage.setItem('gio_hang', JSON.stringify(gio_hang))
+				so_san_pham.innerHTML=gio_hang.length
 			}
 		}
+	});
 
 		function kiem_tra_thong_tin()
 		{
