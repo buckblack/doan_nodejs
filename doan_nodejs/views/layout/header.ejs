@@ -4,18 +4,14 @@
 			<div class="w3l_offers">
 				<a href="/" style="float:left"><img src="/static/images/logo/logo.png" height="38px"  /></a>
                 <div class="product_list_header" style="padding-right: 10px;float:right" onclick="window.location='/giohang'">
-
 						<input type="hidden" name="cmd" value="_cart">
 						<input type="hidden" name="display" value="1">
 						<button class="w3view-cart" type="button" name="submit" value="" ><i class="fa fa-cart-arrow-down" aria-hidden="true"><sup style="font-size:12px">(<b style="color:#F00" id="so_san_pham">0</b>)</sup></i></button>
 
 			</div>
                 <div style="float:right" class="agile-login">
-				<ul>
-
-					<li><a href="/dangky"> Đăng ký </a></li>
-					<li><a href="/dangnhap"> Đăng nhập </a></li>
-
+				<ul id="TH_dangnhap_dangxuat">
+					
 				</ul>
 				</div>
 
@@ -30,12 +26,31 @@
 
 			</form>
 		</div>
-
-
-
-
 		</div>
 	</div>
-
+<script>
+	if(sessionStorage.getItem('khach_hang_Ten')==null || sessionStorage.getItem('khach_hang_Id')==null)
+	{
+		TH_dangnhap_dangxuat.innerHTML=`
+			<li><a href="/dangky"> Đăng ký </a></li>
+			<li><a href="/dangnhap"> Đăng nhập </a></li>
+		`
+	}
+	else
+	{
+		TH_dangnhap_dangxuat.innerHTML=`
+			<li><a href="/users"> Chào: ${sessionStorage.getItem('khach_hang_Ten')} </a></li>
+			<li><a href="#" id="TH_dang_xuat"> Đăng xuất </a></li>
+		`
+	}
+	TH_dang_xuat.onclick=()=>{
+		sessionStorage.removeItem('khach_hang_Ten')
+		sessionStorage.removeItem('khach_hang_Id')
+		sessionStorage.removeItem('khach_hang_Email')
+		sessionStorage.removeItem('khach_hang_Dia_chi')
+		sessionStorage.removeItem('khach_hang_Dien_thoai')
+		window.location=window.location.origin
+	}
+</script>
 
 <!-- //header -->
