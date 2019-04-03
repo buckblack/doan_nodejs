@@ -3,6 +3,7 @@ var router = express.Router();
 var mongodb = require('mongodb');
 var ObjectId = mongodb.ObjectID;
 var xl_mongo = require('../public/js/KET_NOI')
+var md5 = require('md5');
 cl_san_pham = 'san_pham'
 cl_nguoi_dung = 'nguoi_dung'
 router.get('/:id', async function (req, res, next) {
